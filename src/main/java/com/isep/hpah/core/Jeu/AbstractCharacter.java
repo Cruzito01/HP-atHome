@@ -8,9 +8,10 @@ public abstract class AbstractCharacter {
 
     //constructor for character
 
-    public AbstractCharacter(String name, int Maxhp){
+    public AbstractCharacter(String name, int maxHp){
         this.name = name;
         this.hp = maxHp;
+        this.maxHp = maxHp;
     }
 
     //methods every character has
