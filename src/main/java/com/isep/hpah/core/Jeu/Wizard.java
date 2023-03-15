@@ -9,4 +9,10 @@ public class Wizard extends AbstractCharacter{
     public int attack() {
         return 0;
     }
+
+    static String wandCore = Wand.wandCore;
+    static Integer wandSize = Wand.wandSize();
+    static String house = SortingHat.houserand;
+    static String pet = GameLogic.petChoosen;
+
 }

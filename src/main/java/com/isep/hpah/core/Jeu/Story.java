@@ -28,8 +28,9 @@ public class Story {
         GameLogic.printSeperator(30);
         System.out.println("INTRO 3");
         GameLogic.printSeperator(30);
-        System.out.println(" Welcome, young wizard, now that you have your house and you have your wand in your hand,");
-        System.out.println("you will be able to start your studies. ");
+        System.out.println("Your home is "+ Wizard.house );
+        System.out.println("Wand core: " + Wizard.wandCore);
+        System.out.println("Wand size: " + Wizard.wandSize);
         GameLogic.anythingToContinue();
     }
 }

@@ -3,17 +3,12 @@ import java.sql.SQLOutput;
 import java.util.List;
 import java.util.Random;
 public class SortingHat {
-    public static String[] list = {"Hufflepuff","Slytherin","Gryffindor","Ravenclaw"};
 
-    public Random getRandomElement(List<String> list) {
-        Random rand = new Random();
-        String random = list.get(rand.nextInt(list.size()));
-        return rand;
-    }
+    static String[] houses = {"Hufflepuff","Slytherin","Gryffindor","Ravenclaw"};
 
-    public void houserandom(){
-        System.out.println("You have your house:" + getRandomElement("Hufflepuff","Slytherin","Gryffindor","Ravenclaw"));
-    }
+    static int rand = (int) (Math.random() * houses.length);
+
+    static String houserand = houses[rand];
 
 }
 

@@ -3,6 +3,7 @@ import java.awt.*;
 import java.sql.SQLOutput;
 import java.util.Scanner;
 public class GameLogic {
+    public static String petChoosen;
     static Scanner scanner = new Scanner(System.in);
 
     static Wizard wizard;
@@ -82,14 +83,19 @@ public class GameLogic {
                 nameSet = true;
         }while(!nameSet);
 
-        //print story intro
-        Story.printIntro();
-
         //create new player Object with the name
         wizard = new Wizard(name);
 
+        //print story intro
+        Story.printIntro();
+
+        //getting the pet of the player
+        Pet.choosePet();
+        String petChoosen = String.valueOf(Pet.choosePet());
+
         //print first story act intro
         Story.printIntro2();
+        Story.printIntro3();
         //setting isRunning to true, so the gameloop can continue
 
         isRunning = true;
@@ -107,6 +113,10 @@ public class GameLogic {
         printHeading("CHARACTER INFO");
         System.out.println(wizard.name + "\tHP:" + wizard.hp);
         printSeperator(20);
+        System.out.println(petChoosen);
+        System.out.println(Wizard.house);
+        System.out.println(Wizard.wandCore);
+        System.out.println(Wizard.wandSize);
 
         //spells known (à faire)
 
@@ -115,7 +125,7 @@ public class GameLogic {
     //printing the main menu
     public static void printMenu(){
         clearConsole();
-        printHeading("places[place]");
+        printHeading(places[place]);
         System.out.println("What you want to do ?");
         printSeperator(20);
         System.out.println("(1) Continue");
