@@ -1,7 +1,11 @@
 package com.isep.hpah.core.Jeu;
 
-public class Game {
+public class Main {
+
     public static void main(String[] args) {
-        System.out.println("Hello world!");
+
+        GameLogic.startGame();
+
+
     }
 }

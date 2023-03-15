@@ -3,8 +3,7 @@ package com.isep.hpah.core.Jeu;
 public abstract class AbstractCharacter {
     //Variables
     public String name;
-    public int hp;
-    public int maxHp;
+    public int maxHp,hp;
 
     //constructor for character
 
