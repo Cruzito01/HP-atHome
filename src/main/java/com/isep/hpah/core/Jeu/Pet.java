@@ -1,7 +1,5 @@
 package com.isep.hpah.core.Jeu;
 
-import java.util.Random;
-
 import static com.isep.hpah.core.Jeu.GameLogic.*;
 
 public enum Pet {
@@ -31,7 +29,6 @@ public enum Pet {
             else
                 choose = 3;
             Pet[] values = Pet.values();
-            int length = values.length;
             int Index = choose;
             petChoosen = values[Index];
             //correct pet ?

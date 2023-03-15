@@ -13,6 +13,6 @@ public class Wizard extends AbstractCharacter{
     static String wandCore = Wand.wandCore;
     static Integer wandSize = Wand.wandSize();
     static String house = SortingHat.houserand;
-    static String pet = GameLogic.petChoosen;
+    static String pet = String.valueOf(Pet.choosePet());
 
 }

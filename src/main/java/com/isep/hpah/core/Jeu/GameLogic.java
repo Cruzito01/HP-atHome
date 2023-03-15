@@ -3,7 +3,6 @@ import java.awt.*;
 import java.sql.SQLOutput;
 import java.util.Scanner;
 public class GameLogic {
-    public static String petChoosen;
     static Scanner scanner = new Scanner(System.in);
 
     static Wizard wizard;
@@ -68,7 +67,7 @@ public class GameLogic {
         printSeperator(40);
         anythingToContinue();
 
-        //getting the player name
+        //getting the player name and the pet
         do{
             clearConsole();
             printHeading("Young Wizard, tell me your name");
@@ -89,9 +88,7 @@ public class GameLogic {
         //print story intro
         Story.printIntro();
 
-        //getting the pet of the player
-        Pet.choosePet();
-        String petChoosen = String.valueOf(Pet.choosePet());
+
 
         //print first story act intro
         Story.printIntro2();
@@ -113,7 +110,7 @@ public class GameLogic {
         printHeading("CHARACTER INFO");
         System.out.println(wizard.name + "\tHP:" + wizard.hp);
         printSeperator(20);
-        System.out.println(petChoosen);
+        System.out.println(Wizard.pet);
         System.out.println(Wizard.house);
         System.out.println(Wizard.wandCore);
         System.out.println(Wizard.wandSize);
