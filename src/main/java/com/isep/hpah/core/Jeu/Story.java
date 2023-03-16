@@ -1,5 +1,7 @@
 package com.isep.hpah.core.Jeu;
 
+import static com.isep.hpah.core.Jeu.GameLogic.wizard;
+
 public class Story {
 
     public static void printIntro(){
@@ -31,6 +33,27 @@ public class Story {
         System.out.println("Your home is "+ Wizard.house );
         System.out.println("Wand core: " + Wizard.wandCore);
         System.out.println("Wand size: " + Wizard.wandSize);
+        GameLogic.anythingToContinue();
+    }
+
+    public static void printIntro4(){
+        GameLogic.clearConsole();
+        GameLogic.printSeperator(30);
+        System.out.println("INTRO 4");
+        GameLogic.printSeperator(30);
+        System.out.println("Wizard " + wizard.name + ", now you are ready to start your journey among");
+        System.out.println("Let's start !");
+        GameLogic.anythingToContinue();
+    }
+
+    public static void printActI_Intro(){
+        GameLogic.clearConsole();
+        GameLogic.printSeperator(30);
+        System.out.println("The PHILOSOPHER'S STONE");
+        GameLogic.printSeperator(30);
+        System.out.println(wizard.name + " please come fast in the toilet ! I heard someone screaming !");
+        System.out.println("When you come to the toilet you see a huge ogre, you have no choice but to afronter it");
+        System.out.println("Good Luck !");
         GameLogic.anythingToContinue();
     }
 }

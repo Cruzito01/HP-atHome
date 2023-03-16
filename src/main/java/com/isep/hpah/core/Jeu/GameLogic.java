@@ -93,6 +93,11 @@ public class GameLogic {
         //print first story act intro
         Story.printIntro2();
         Story.printIntro3();
+        Story.printIntro4();
+
+        //First act
+        Story.printActI_Intro();
+
         //setting isRunning to true, so the gameloop can continue
 
         isRunning = true;
@@ -100,9 +105,23 @@ public class GameLogic {
         //start main game loop
         gameLoop();
     }
+/*
+    public static void checkAct(){
+        if(player.level == 2 && act == 1){
+            //increment act and place
+            act = 2;
+            place = 1;
+            Sory.printFirstActOutro();
+            //let the player "level up"
+
+        }
+
+    }
+    */
     //method to continue de journey
     public static void continueJourney(){
-
+        //check if act must be increased
+        //checkAct();
     }
     //printing character infos
     public static void characterInfo(){

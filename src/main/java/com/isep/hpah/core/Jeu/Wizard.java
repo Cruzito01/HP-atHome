@@ -2,7 +2,7 @@ package com.isep.hpah.core.Jeu;
 
 public class Wizard extends AbstractCharacter{
     public Wizard(String name) {
-        super(name, 100);
+        super(name, 100, 1);
     }
 
     @Override
