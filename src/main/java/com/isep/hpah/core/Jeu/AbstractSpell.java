@@ -4,13 +4,11 @@ public abstract class AbstractSpell {
 
     public String name;
 
-    public int  accuracy;
 
     //constructor for character
 
-    public AbstractSpell(String name,  int accuracy){
+    public AbstractSpell(String name){
         this.name = name;
-        this.accuracy = accuracy;
     }
 
     //methods every spell has

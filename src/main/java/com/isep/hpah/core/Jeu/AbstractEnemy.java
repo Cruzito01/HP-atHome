@@ -9,4 +9,6 @@ public abstract class AbstractEnemy extends AbstractCharacter{
     public int attack() {
         return 0;
     }
+
+
 }

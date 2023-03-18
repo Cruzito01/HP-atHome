@@ -11,7 +11,10 @@ public class GameLogic {
 
     //story elements
     public static int place = 0, act = 1;
-    public static String[] places = {"Dungeon toilet","Chamber of Secrets","Lake in the Forbidden Forest","Little Hangleton Cemetery","Hogwarts Exam Room","Astronomy Tower","Hogwarts"};
+
+    //places in the game
+    public static String[] places = {"Intro","Dungeon toilet","Chamber of Secrets","Lake in the Forbidden Forest","Little Hangleton Cemetery","Hogwarts Exam Room","Astronomy Tower","Hogwarts"};
+
     //method to get user input from console
     public static int readInt(String prompt, int userChoices){
         int input;
@@ -83,45 +86,82 @@ public class GameLogic {
         }while(!nameSet);
 
         //create new player Object with the name
-        wizard = new Wizard(name);
+        wizard = new Wizard(name, 25, 70, 40);
+        Wizard.house.houseEffect(Wizard.house, wizard, new Potion("Potion", 50));
 
         //print story intro
         Story.printIntro();
-
-
-
-        //print first story act intro
         Story.printIntro2();
         Story.printIntro3();
         Story.printIntro4();
 
-        //First act
-        Story.printActI_Intro();
-
         //setting isRunning to true, so the gameloop can continue
-
         isRunning = true;
 
-        //start main game loop
+        //start main game loop with the menu
         gameLoop();
+
     }
-/*
+
     public static void checkAct(){
-        if(player.level == 2 && act == 1){
+        if(act == 1){
+            Story.printActI_Intro();
+            Story.printActI_Outro();
+
             //increment act and place
             act = 2;
             place = 1;
-            Sory.printFirstActOutro();
-            //let the player "level up"
-
         }
+        else if (act == 2){
 
+            Story.printActII_Intro();
+            Story.printActII_Outro();
+
+            act = 3;
+            place = 2;
+        }
+        else if (act == 3){
+
+            Story.printActIII_Intro();
+            Story.printActIII_Outro();
+
+            act = 4;
+            place = 3;
+        }
+        else if (act == 4){
+
+            Story.printActIV_Intro();
+            Story.printActIV_Outro();
+
+            act = 5;
+            place = 4;
+        }
+        else if (act == 5){
+
+            Story.printActV_Intro();
+            Story.printActV_Outro();
+
+            act = 6;
+            place =5;
+        }
+        else if (act == 6){
+
+            Story.printActVI_Intro();
+            Story.printActVI_Outro();
+
+            act = 7;
+            place = 6;
+        }
+        else{
+            Story.printActVII_Intro();
+            Story.printActVII_Outro();
+        }
     }
-    */
+
     //method to continue de journey
     public static void continueJourney(){
         //check if act must be increased
-        //checkAct();
+        checkAct();
     }
     //printing character infos
     public static void characterInfo(){
@@ -129,8 +169,9 @@ public class GameLogic {
         printHeading("CHARACTER INFO");
         System.out.println(wizard.name + "\tHP:" + wizard.hp);
         printSeperator(20);
+        System.out.println("Strength: "+ wizard.strength + "/ Accuracy: " + wizard.accuracy + "/ Def:" + wizard.def);
         System.out.println(Wizard.pet);
-        System.out.println(Wizard.house);
+        System.out.println(Wizard.house.name);
         System.out.println(Wizard.wandCore);
         System.out.println(Wizard.wandSize);
 
