@@ -106,6 +106,8 @@ public class GameLogic {
     public static void checkAct(){
         if(act == 1){
             Story.printActI_Intro();
+
+
             Story.printActI_Outro();
 
             //increment act and place
