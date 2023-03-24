@@ -1,6 +1,8 @@
 package com.isep.hpah.core.Jeu;
 import java.awt.*;
 import java.sql.SQLOutput;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 public class GameLogic {
     static Scanner scanner = new Scanner(System.in);
@@ -53,7 +55,7 @@ public class GameLogic {
 
     //method to stop the game until user enters anything
     public static void anythingToContinue(){
-        System.out.println("\nEnter anything to continue...");
+        System.out.println(Spells.ConsoleColors.YELLOW + "\nEnter anything to continue..."+ Spells.ConsoleColors.RESET);
         scanner.next();
     }
 
@@ -86,8 +88,10 @@ public class GameLogic {
         }while(!nameSet);
 
         //create new player Object with the name
-        wizard = new Wizard(name, 25, 70, 40);
+        wizard = new Wizard(name, 25, 0.70F, 40);
         Wizard.house.houseEffect(Wizard.house, wizard, new Potion("Potion", 50));
+        knownSpells.add(basicAttack);
+        knownSpells.add(wingardiumLeviosa);
 
         //print story intro
         Story.printIntro();
@@ -107,52 +111,76 @@ public class GameLogic {
         if(act == 1){
             Story.printActI_Intro();
 
-
             Story.printActI_Outro();
-
+            // upgrade
+            wizard.chooseUpgrade();
+            //new spell accio
+            Spells.newSpell1();
             //increment act and place
             act = 2;
             place = 1;
+            wizard.hp = wizard.maxHp;
         }
         else if (act == 2){
 
             Story.printActII_Intro();
             Story.printActII_Outro();
 
+            // upgrade
+            wizard.chooseUpgrade();
+            //new spell expecto patronum
+            Spells.newSpell2();
             act = 3;
             place = 2;
+            wizard.hp = wizard.maxHp;
         }
         else if (act == 3){
 
             Story.printActIII_Intro();
             Story.printActIII_Outro();
 
+            // upgrade
+            wizard.chooseUpgrade();
             act = 4;
             place = 3;
+            wizard.hp = wizard.maxHp;
         }
         else if (act == 4){
 
             Story.printActIV_Intro();
             Story.printActIV_Outro();
 
+            // upgrade
+            wizard.chooseUpgrade();
+            //new spell sectum sempra
+            Spells.newSpell3();
             act = 5;
             place = 4;
+            wizard.hp = wizard.maxHp;
         }
         else if (act == 5){
 
             Story.printActV_Intro();
             Story.printActV_Outro();
 
+            // upgrade
+            wizard.chooseUpgrade();
+            //new spell expediarmus
+            Spells.newSpell4();
             act = 6;
             place =5;
+            wizard.hp = wizard.maxHp;
         }
         else if (act == 6){
 
             Story.printActVI_Intro();
             Story.printActVI_Outro();
 
+            // upgrade
+            wizard.chooseUpgrade();
             act = 7;
             place = 6;
+            wizard.hp = wizard.maxHp;
         }
         else{
             Story.printActVII_Intro();
@@ -168,29 +196,49 @@ public class GameLogic {
     //printing character infos
     public static void characterInfo(){
         clearConsole();
-        printHeading("CHARACTER INFO");
+        printHeading(Spells.ConsoleColors.PURPLE + "CHARACTER INFO" + Spells.ConsoleColors.RESET);
         System.out.println(wizard.name + "\tHP:" + wizard.hp);
         printSeperator(20);
-        System.out.println("Strength: "+ wizard.strength + "/ Accuracy: " + wizard.accuracy + "/ Def:" + wizard.def);
+        System.out.println(Spells.ConsoleColors.CYAN +"Strength: "+Spells.ConsoleColors.RESET + wizard.strength + Spells.ConsoleColors.CYAN + "/ Accuracy: "+ Spells.ConsoleColors.RESET + wizard.accuracy*100 + Spells.ConsoleColors.CYAN + "% / Def:"+ Spells.ConsoleColors.RESET + wizard.def);
         System.out.println(Wizard.pet);
         System.out.println(Wizard.house.name);
         System.out.println(Wizard.wandCore);
         System.out.println(Wizard.wandSize);
-
-        //spells known (à faire)
-
+        printSeperator(20);
+        System.out.println("Spells known: ");
+        for (int i = 0; i< knownSpells.size();i++) {
+            System.out.println(Spells.ConsoleColors.CYAN + "Name Spell: " + Spells.ConsoleColors.RESET + knownSpells.get(i).getName() + Spells.ConsoleColors.CYAN + " -- Power: " + Spells.ConsoleColors.RESET + knownSpells.get(i).getDamage() + Spells.ConsoleColors.CYAN + " -- Accuracity: " + Spells.ConsoleColors.RESET + knownSpells.get(i).getAccuracy());
+        }
         anythingToContinue();
     }
     //printing the main menu
     public static void printMenu(){
         clearConsole();
-        printHeading(places[place]);
+        printHeading(Spells.ConsoleColors.PURPLE + places[place]+ Spells.ConsoleColors.RESET);
         System.out.println("What you want to do ?");
         printSeperator(20);
-        System.out.println("(1) Continue");
-        System.out.println("(2) Character Info");
-        System.out.println("(3) Exit Game");
+        System.out.println(Spells.ConsoleColors.BLUE + "(1) Continue" + Spells.ConsoleColors.RESET);
+        System.out.println(Spells.ConsoleColors.GREEN + "(2) Character Info"+ Spells.ConsoleColors.RESET);
+        System.out.println(Spells.ConsoleColors.RED + "(3) Exit Game"+ Spells.ConsoleColors.RESET);
     }
+
+    //SPELLS
+    static Spells[] spell = new Spells[6];
+    static List<Spells> knownSpells = new ArrayList<>();
+    static Spells basicAttack = new Spells("BasicAttack", 10, 100);
+    static Spells wingardiumLeviosa = new Spells("Wingardium Leviosa", 5, 80);
+    static Spells accio = new Spells("Accio", 10, 100);
+    static Spells expectoPatronum = new Spells("Expecto Patronum", 0, 100);
+    static Spells sectumSempra = new Spells("Sectumsempra", 100, 40);
+    static Spells expelliarmus = new Spells("Expelliarmus", 30, 60);
+    /*
+        spell [0]= basicAttack;
+        spell [1]=wingardiumLeviosa;
+        spell [2]=accio;
+        spell [3]=expectoPatronum;
+        spell [4]=sectumSempra;
+        spell [5]=expelliarmus;
+    */
     //main game loop
     public static void gameLoop(){
         while(isRunning){
@@ -204,4 +252,5 @@ public class GameLogic {
                 isRunning = false;
         }
     }
+
 }

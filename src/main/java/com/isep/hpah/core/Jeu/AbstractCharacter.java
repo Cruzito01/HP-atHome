@@ -4,7 +4,7 @@ public abstract class AbstractCharacter {
     //Variables
 
     public String name;
-    public int maxHp,hp,lvl;
+    public int maxHp,hp;
 
     //constructor for character
 
@@ -14,8 +14,5 @@ public abstract class AbstractCharacter {
         this.hp = maxHp;
     }
 
-    //methods every character has
-
-    public abstract int attack();
 
 }

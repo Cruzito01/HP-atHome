@@ -3,7 +3,6 @@ package com.isep.hpah.core.Jeu;
 public class Potion {
 
     public String name;
-
     public int heal;
 
 
@@ -13,8 +12,8 @@ public class Potion {
     }
 
     public void potionEffect(Wizard wizard){
-        int heal = wizard.hp + this.heal;
-        if (heal >= wizard.maxHp){
+        wizard.hp += this.heal;
+        if (wizard.hp > wizard.maxHp){
             wizard.hp = wizard.maxHp;
         }
         System.out.println("You heal yourself");
