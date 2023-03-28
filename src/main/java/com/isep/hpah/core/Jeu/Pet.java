@@ -34,8 +34,8 @@ public enum Pet {
             //correct pet ?
             clearConsole();
             printHeading("Did I hear " + petChoosen + " ?");
-            System.out.println("(1) Yes !");
-            System.out.println("(2) No, I will repeat !");
+            System.out.println((Color.GREEN.color) + "(1) Yes !" + (Color.RESET.color));
+            System.out.println((Color.RED.color) + "(2) No, I will repeat !" + (Color.RESET.color));
             input = readInt("-> ", 2);
             if (input == 1)
                 petSet = true;

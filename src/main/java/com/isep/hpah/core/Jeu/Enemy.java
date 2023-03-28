@@ -1,10 +1,12 @@
 package com.isep.hpah.core.Jeu;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Enemy extends AbstractCharacter{
 
-    public float accuracy;
-
-    public int strength;
+    private float accuracy;
+    private int strength;
 
     public Enemy(String name, int maxHp, float accuracy, int strength) {
         super(name, maxHp);
@@ -12,6 +14,45 @@ public class Enemy extends AbstractCharacter{
         this.strength = strength;
     }
 
+    public float getAccuracy(){
+        return accuracy;
+    }
+    public void setAccuracy(int accuracy){
+        this.accuracy = accuracy;
+    }
+    public int getStrength(){
+        return strength;
+    }
+    public void setStrength(int strength){
+        this.strength= strength;
+    }
+    static Enemy[] enemy = new Enemy[8];
+    static List<Enemy> enemies = new ArrayList<>();
+    static Enemy troll = new Enemy("Troll", 100, 0.80F, 50);
+    static Enemy basilic = new Enemy("Basilic", 100, 0.80F, 50);
+    static Enemy dementors = new Enemy("Dementors", 100, 0.80F,50);
+    static Enemy voldemort1 = new Enemy("Dementors", 100, 0.80F,50);
+    static Enemy peterPettigrow = new Enemy("Peter Pettigrow", 100, 0.80F,50);
+    static Enemy doloresOmbrage = new Enemy("Dolores Ombrage", 100, 0.80F,50);
+    static Enemy deathEaters = new Enemy("Death Eaters", 100, 0.80F,50);
+    static Enemy voldemort2 = new Enemy("Voldemort", 100, 0.80F,50);
+    static Enemy bellatrixLestrange = new Enemy("Bellatrix Lestrange", 100, 0.80F,50);
+
+
+    public static void createEnemies(){
+        enemies.add(troll);
+        enemies.add(basilic);
+        enemies.add(dementors);
+        enemies.add(voldemort1);
+        enemies.add(peterPettigrow);
+        enemies.add(doloresOmbrage);
+        enemies.add(deathEaters);
+        enemies.add(voldemort2);
+        enemies.add(bellatrixLestrange);
+    }
+
+
+    /*
 public static Enemy troll() {
         return new Enemy("Troll",200, 0.70F,30);
 }
@@ -39,4 +80,6 @@ public static Enemy voldemort2(){
 public static Enemy bellatrixLestrange(){
         return new Enemy("Bellatrix Lestrange",200,0.20F,100);
 }
+
+     */
 }

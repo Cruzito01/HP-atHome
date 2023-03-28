@@ -27,7 +27,7 @@ public class GameLogic {
                 input = Integer.parseInt(scanner.next());
             }catch(Exception e){
                 input = -1;
-                System.out.println("Please enter an integer!");
+                System.out.println((Color.RED.color)+"Please enter an integer!" +(Color.RESET.color));
             }
         }while(input < 1 || input > userChoices);
         return input;
@@ -55,7 +55,7 @@ public class GameLogic {
 
     //method to stop the game until user enters anything
     public static void anythingToContinue(){
-        System.out.println(Spells.ConsoleColors.YELLOW + "\nEnter anything to continue..."+ Spells.ConsoleColors.RESET);
+        System.out.println((Color.YELLOW.color)+ "\nEnter anything to continue..."+ (Color.RESET.color));
         scanner.next();
     }
 
@@ -66,8 +66,8 @@ public class GameLogic {
         clearConsole();
         printSeperator(40);
         printSeperator(30);
-        System.out.println("It's the start of your Adventure !");
-        System.out.println("Game RPG");
+        System.out.println((Color.PURPLE.color) + "It's the start of your Adventure !");
+        System.out.println("Game RPG" + (Color.RESET.color));
         printSeperator(30);
         printSeperator(40);
         anythingToContinue();
@@ -80,8 +80,8 @@ public class GameLogic {
             //correct name ?
             clearConsole();
             printHeading("Did I hear " + name + " ?");
-            System.out.println("(1) Yes !");
-            System.out.println("(2) No, I will repeat !");
+            System.out.println((Color.GREEN.color) + "(1) Yes !" + (Color.RESET.color));
+            System.out.println((Color.RED.color) + "(2) No, I will repeat !" + (Color.RESET.color));
             int input = readInt("-> ", 2);
             if(input == 1)
                 nameSet = true;
@@ -119,11 +119,12 @@ public class GameLogic {
             //increment act and place
             act = 2;
             place = 1;
-            wizard.hp = wizard.maxHp;
+            wizard.setHp(wizard.getMaxHp());
         }
         else if (act == 2){
 
             Story.printActII_Intro();
+
             Story.printActII_Outro();
 
             // upgrade
@@ -132,7 +133,7 @@ public class GameLogic {
             Spells.newSpell2();
             act = 3;
             place = 2;
-            wizard.hp = wizard.maxHp;
+            wizard.setHp(wizard.getMaxHp());
         }
         else if (act == 3){
 
@@ -143,7 +144,7 @@ public class GameLogic {
             wizard.chooseUpgrade();
             act = 4;
             place = 3;
-            wizard.hp = wizard.maxHp;
+            wizard.setHp(wizard.getMaxHp());
         }
         else if (act == 4){
 
@@ -156,7 +157,7 @@ public class GameLogic {
             Spells.newSpell3();
             act = 5;
             place = 4;
-            wizard.hp = wizard.maxHp;
+            wizard.setHp(wizard.getMaxHp());
         }
         else if (act == 5){
 
@@ -169,7 +170,7 @@ public class GameLogic {
             Spells.newSpell4();
             act = 6;
             place =5;
-            wizard.hp = wizard.maxHp;
+            wizard.setHp(wizard.getMaxHp());
         }
         else if (act == 6){
 
@@ -180,7 +181,7 @@ public class GameLogic {
             wizard.chooseUpgrade();
             act = 7;
             place = 6;
-            wizard.hp = wizard.maxHp;
+            wizard.setHp(wizard.getMaxHp());
         }
         else{
             Story.printActVII_Intro();
@@ -196,10 +197,10 @@ public class GameLogic {
     //printing character infos
     public static void characterInfo(){
         clearConsole();
-        printHeading(Spells.ConsoleColors.PURPLE + "CHARACTER INFO" + Spells.ConsoleColors.RESET);
-        System.out.println(wizard.name + "\tHP:" + wizard.hp);
+        printHeading((Color.PURPLE.color) + "CHARACTER INFO" + (Color.RESET.color));
+        System.out.println(wizard.getName() + "\tHP:" + wizard.getHp());
         printSeperator(20);
-        System.out.println(Spells.ConsoleColors.CYAN +"Strength: "+Spells.ConsoleColors.RESET + wizard.strength + Spells.ConsoleColors.CYAN + "/ Accuracy: "+ Spells.ConsoleColors.RESET + wizard.accuracy*100 + Spells.ConsoleColors.CYAN + "% / Def:"+ Spells.ConsoleColors.RESET + wizard.def);
+        System.out.println((Color.CYAN.color) +"Strength: "+(Color.RESET.color) + wizard.getStrength() + (Color.CYAN.color) + "/ Accuracy: "+ (Color.RESET.color) + wizard.getAccuracy() *100 + (Color.CYAN.color) + "% / Def:"+ (Color.RESET.color) + wizard.getDef());
         System.out.println(Wizard.pet);
         System.out.println(Wizard.house.name);
         System.out.println(Wizard.wandCore);
@@ -207,19 +208,19 @@ public class GameLogic {
         printSeperator(20);
         System.out.println("Spells known: ");
         for (int i = 0; i< knownSpells.size();i++) {
-            System.out.println(Spells.ConsoleColors.CYAN + "Name Spell: " + Spells.ConsoleColors.RESET + knownSpells.get(i).getName() + Spells.ConsoleColors.CYAN + " -- Power: " + Spells.ConsoleColors.RESET + knownSpells.get(i).getDamage() + Spells.ConsoleColors.CYAN + " -- Accuracity: " + Spells.ConsoleColors.RESET + knownSpells.get(i).getAccuracy());
+            System.out.println((Color.CYAN.color) + "Name Spell: " + (Color.RESET.color) + knownSpells.get(i).getName() + (Color.CYAN.color) + " -- Power: " + (Color.RESET.color) + knownSpells.get(i).getDamage() + (Color.CYAN.color) + " -- Accuracity: " + (Color.RESET.color) + knownSpells.get(i).getAccuracy());
         }
         anythingToContinue();
     }
     //printing the main menu
     public static void printMenu(){
         clearConsole();
-        printHeading(Spells.ConsoleColors.PURPLE + places[place]+ Spells.ConsoleColors.RESET);
+        printHeading((Color.PURPLE.color) + places[place]+ (Color.RESET.color));
         System.out.println("What you want to do ?");
         printSeperator(20);
-        System.out.println(Spells.ConsoleColors.BLUE + "(1) Continue" + Spells.ConsoleColors.RESET);
-        System.out.println(Spells.ConsoleColors.GREEN + "(2) Character Info"+ Spells.ConsoleColors.RESET);
-        System.out.println(Spells.ConsoleColors.RED + "(3) Exit Game"+ Spells.ConsoleColors.RESET);
+        System.out.println((Color.BLUE.color) + "(1) Continue" + (Color.RESET.color));
+        System.out.println((Color.GREEN.color) + "(2) Character Info"+ (Color.RESET.color));
+        System.out.println((Color.RED.color) + "(3) Exit Game"+ (Color.RESET.color));
     }
 
     //SPELLS
@@ -231,6 +232,7 @@ public class GameLogic {
     static Spells expectoPatronum = new Spells("Expecto Patronum", 0, 100);
     static Spells sectumSempra = new Spells("Sectumsempra", 100, 40);
     static Spells expelliarmus = new Spells("Expelliarmus", 30, 60);
+
     /*
         spell [0]= basicAttack;
         spell [1]=wingardiumLeviosa;

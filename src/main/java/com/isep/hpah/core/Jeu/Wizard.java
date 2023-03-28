@@ -3,9 +3,9 @@ package com.isep.hpah.core.Jeu;
 import java.util.*;
 
 public class Wizard extends AbstractCharacter {
-    public int def;
-    public float accuracy;
-    public int strength;
+    private int def;
+    private float accuracy;
+    private int strength;
 
     public List<Potion> potions = new ArrayList<>();
 
@@ -24,14 +24,23 @@ public class Wizard extends AbstractCharacter {
     static String pet = String.valueOf(Pet.choosePet());
 
 
+    public int getDef(){
+        return def;
+    }
     public void setDef(int def) {
         this.def = def;
     }
 
+    public float getAccuracy(){
+        return accuracy;
+    }
     public void setAccuracy(float accuracy) {
         this.accuracy = accuracy;
     }
 
+    public int getStrength(){
+        return strength;
+    }
     public void setStrength(int strength) {
         this.strength = strength;
     }
@@ -40,18 +49,18 @@ public class Wizard extends AbstractCharacter {
     //choose an upgrade after you win a boss
     public void chooseUpgrade(){
         GameLogic.clearConsole();
-        GameLogic.printHeading(Spells.ConsoleColors.RED +"Choose an upgrade"+ Spells.ConsoleColors.RESET);
+        GameLogic.printHeading((Color.RED.color)+"Choose an upgrade"+ (Color.RESET.color));
         System.out.println("You won ! You can now choose an upgrade :");
-        System.out.println("(1) You upgrade your max health points.");
-        System.out.println("(2) You improve your strength.");
+        System.out.println((Color.BLUE.color) + "(1) You upgrade your max health points." + (Color.RESET.color));
+        System.out.println((Color.GREEN.color) + "(2) You improve your strength." + (Color.RESET.color));
         //get player choice:
         int input = GameLogic.readInt("->", 2);
         GameLogic.clearConsole();
         if(input == 1){
-            GameLogic.printHeading("You choose more health points !");
-            maxHp = maxHp + 10;
+            GameLogic.printHeading( (Color.RED.color) + "You choose more health points !" + (Color.RESET.color));
+            setMaxHp(getMaxHp() + 10);
         }else{
-            GameLogic.printHeading("You choose more strength !");
+            GameLogic.printHeading((Color.RED.color) + "You choose more strength !"+ (Color.RESET.color));
             strength = strength + 10;
         }
         GameLogic.anythingToContinue();
