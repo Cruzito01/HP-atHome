@@ -1,0 +1,3 @@
+Créer un loop pour tous les combats où il n'y a qu'un seul ennemie, une fois l'ennemie vaincu, il y a un if qui envoie
+à une action spéciale selon l'acte. Donc si on est acte 1, on aura le choix ou non d'utiliser Wingardium.
+Créer ainsi un autre loop pour les 2 fois où il y a 2 ennemies.

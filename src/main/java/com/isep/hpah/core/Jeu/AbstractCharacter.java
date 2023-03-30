@@ -5,7 +5,6 @@ public abstract class AbstractCharacter {
 
     private String name;
     private int maxHp;
-
     private int hp;
 
     public String getName(){

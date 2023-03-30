@@ -110,7 +110,7 @@ public class GameLogic {
     public static void checkAct(){
         if(act == 1){
             Story.printActI_Intro();
-
+            Battle.fight();
             Story.printActI_Outro();
             // upgrade
             wizard.chooseUpgrade();
