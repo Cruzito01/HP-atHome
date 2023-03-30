@@ -88,7 +88,7 @@ public class GameLogic {
         }while(!nameSet);
 
         //create new player Object with the name
-        wizard = new Wizard(name, 25, 0.70F, 40);
+        wizard = new Wizard(name, 25, 70, 40);
         Wizard.house.houseEffect(Wizard.house, wizard, new Potion("Potion", 50));
         knownSpells.add(basicAttack);
         knownSpells.add(wingardiumLeviosa);

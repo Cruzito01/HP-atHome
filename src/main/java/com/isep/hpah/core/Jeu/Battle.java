@@ -1,9 +1,10 @@
 package com.isep.hpah.core.Jeu;
-
+import java.util.*;
 public class Battle {
     public static int spellchoosen;
     public static int hpPlayer;
     public static int hpEnemy;
+
     public static void battleMenu() {
         hpEnemy = Enemy.enemies.get(0).getHp();
         hpPlayer = GameLogic.wizard.getHp();
@@ -54,10 +55,25 @@ public class Battle {
 
         public static void damage() {
             System.out.println("You attack the enemy with " + GameLogic.knownSpells.get(spellchoosen).getName());
-
+            int chancetohit = (int)(Math.random()*101);
+            if (chancetohit < (GameLogic.knownSpells.get(spellchoosen).getAccuracy() + GameLogic.wizard.getAccuracy() )) {
+                int damage1 = GameLogic.knownSpells.get(spellchoosen).getDamage() + GameLogic.wizard.getStrength();
+                System.out.println("You hit the ennemy !");
+                System.out.println("you did " + Color.RED.color + damage1 + Color.RESET.color + " damages !" );
+                hpEnemy -= damage1;
+            }else {
+                System.out.println("You failed the ennemy !");
+            }
+                GameLogic.anythingToContinue();
         }
 
         public static void damagesuffered() {
+            if (hpEnemy > 0){
+                System.out.println(Enemy.enemies.get(0).getName() + "attacked you !");
+            }else {
+                System.out.println("The enemy died");
+            }
+            GameLogic.anythingToContinue();
         }
         public static void fightLoop () {
 

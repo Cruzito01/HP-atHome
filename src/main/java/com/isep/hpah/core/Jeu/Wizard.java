@@ -4,13 +4,13 @@ import java.util.*;
 
 public class Wizard extends AbstractCharacter {
     private int def;
-    private float accuracy;
+    private int accuracy;
     private int strength;
 
     public List<Potion> potions = new ArrayList<>();
 
 
-    public Wizard(String name, int def, float accuracy, int strength) {
+    public Wizard(String name, int def, int accuracy, int strength) {
         super(name, 100);
         this.def = def;
         this.accuracy = accuracy;
@@ -31,10 +31,10 @@ public class Wizard extends AbstractCharacter {
         this.def = def;
     }
 
-    public float getAccuracy(){
+    public int getAccuracy(){
         return accuracy;
     }
-    public void setAccuracy(float accuracy) {
+    public void setAccuracy(int accuracy) {
         this.accuracy = accuracy;
     }
 
