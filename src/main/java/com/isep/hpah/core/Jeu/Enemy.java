@@ -5,16 +5,16 @@ import java.util.List;
 
 public class Enemy extends AbstractCharacter{
 
-    private float accuracy;
+    private int accuracy;
     private int strength;
 
-    public Enemy(String name, int maxHp, float accuracy, int strength) {
+    public Enemy(String name, int maxHp, int accuracy, int strength) {
         super(name, maxHp);
         this.accuracy = accuracy;
         this.strength = strength;
     }
 
-    public float getAccuracy(){
+    public int getAccuracy(){
         return accuracy;
     }
     public void setAccuracy(int accuracy){
@@ -28,16 +28,15 @@ public class Enemy extends AbstractCharacter{
     }
     static Enemy[] enemy = new Enemy[8];
     static List<Enemy> enemies = new ArrayList<>();
-    static Enemy troll = new Enemy("Troll", 100, 0.80F, 50);
-    static Enemy basilic = new Enemy("Basilic", 100, 0.80F, 50);
-    static Enemy dementors = new Enemy("Dementors", 100, 0.80F,50);
-    static Enemy voldemort1 = new Enemy("Dementors", 100, 0.80F,50);
-    static Enemy peterPettigrow = new Enemy("Peter Pettigrow", 100, 0.80F,50);
-    static Enemy doloresOmbrage = new Enemy("Dolores Ombrage", 100, 0.80F,50);
-    static Enemy deathEaters = new Enemy("Death Eaters", 100, 0.80F,50);
-    static Enemy voldemort2 = new Enemy("Voldemort", 100, 0.80F,50);
-    static Enemy bellatrixLestrange = new Enemy("Bellatrix Lestrange", 100, 0.80F,50);
-
+    static Enemy troll = new Enemy("Troll", 100, 80, 50);
+    static Enemy basilic = new Enemy("Basilic", 100, 80, 50);
+    static Enemy dementors = new Enemy("Dementors", 100, 80,50);
+    static Enemy voldemort1 = new Enemy("Dementors", 100, 80,50);
+    static Enemy doloresOmbrage = new Enemy("Dolores Ombrage", 100, 80,50);
+    static Enemy deathEaters = new Enemy("Death Eaters", 100, 80,50);
+    static Enemy voldemort2 = new Enemy("Voldemort", 100, 80,50);
+    static Enemy bellatrixLestrange = new Enemy("Bellatrix Lestrange", 100, 80,50);
+    static Enemy peterPettigrow = new Enemy("Peter Pettigrow", 100, 80,50);
 
     public static void createEnemies(){
         enemies.add(troll);

@@ -88,7 +88,7 @@ public class GameLogic {
         }while(!nameSet);
 
         //create new player Object with the name
-        wizard = new Wizard(name, 25, 70, 40);
+        wizard = new Wizard(name, 5, 70, 40);
         Wizard.house.houseEffect(Wizard.house, wizard, new Potion("Potion", 50));
         knownSpells.add(basicAttack);
         knownSpells.add(wingardiumLeviosa);
@@ -111,81 +111,118 @@ public class GameLogic {
         if(act == 1){
             Story.printActI_Intro();
             Battle.fight();
-            Story.printActI_Outro();
-            // upgrade
-            wizard.chooseUpgrade();
-            //new spell accio
-            Spells.newSpell1();
-            //increment act and place
-            act = 2;
-            place = 1;
-            wizard.setHp(wizard.getMaxHp());
+            if (Battle.hpPlayer > 0) {
+                Story.printActI_Outro();
+                // upgrade
+                wizard.chooseUpgrade();
+                //new spell accio
+                Spells.newSpell1();
+                //increment act and place
+                act = 2;
+                place = 1;
+                wizard.setHp(wizard.getMaxHp());
+                Wizard.potions.add(new Potion("Potion", 50));
+            }else{
+                System.out.println("You ARE DEAD");
+                anythingToContinue();
+            }
         }
         else if (act == 2){
-
             Story.printActII_Intro();
-
-            Story.printActII_Outro();
-
-            // upgrade
-            wizard.chooseUpgrade();
-            //new spell expecto patronum
-            Spells.newSpell2();
-            act = 3;
-            place = 2;
-            wizard.setHp(wizard.getMaxHp());
+            Battle.fight();
+            if (Battle.hpPlayer > 0) {
+                Story.printActII_Outro();
+                // upgrade
+                wizard.chooseUpgrade();
+                //new spell expecto patronum
+                Spells.newSpell2();
+                act = 3;
+                place = 2;
+                Battle.hpPlayer = wizard.getMaxHp();
+                Wizard.potions.add(new Potion("Potion", 50));
+            }else{
+                System.out.println("You ARE DEAD");
+                anythingToContinue();
+            }
         }
         else if (act == 3){
-
             Story.printActIII_Intro();
-            Story.printActIII_Outro();
-
-            // upgrade
-            wizard.chooseUpgrade();
-            act = 4;
-            place = 3;
-            wizard.setHp(wizard.getMaxHp());
+            Battle.fight();
+            if (Battle.hpPlayer > 0) {
+                Story.printActIII_Outro();
+                // upgrade
+                wizard.chooseUpgrade();
+                act = 4;
+                place = 3;
+                Battle.hpPlayer = wizard.getMaxHp();
+                Wizard.potions.add(new Potion("Potion", 50));
+            }else{
+                System.out.println("You ARE DEAD");
+                anythingToContinue();
+            }
         }
         else if (act == 4){
-
             Story.printActIV_Intro();
-            Story.printActIV_Outro();
+            //fight
+            if (Battle.hpPlayer > 0) {
+                Story.printActIV_Outro();
 
-            // upgrade
-            wizard.chooseUpgrade();
-            //new spell sectum sempra
-            Spells.newSpell3();
-            act = 5;
-            place = 4;
-            wizard.setHp(wizard.getMaxHp());
+                // upgrade
+                wizard.chooseUpgrade();
+                //new spell sectum sempra
+                Spells.newSpell3();
+                act = 5;
+                place = 4;
+                Battle.hpPlayer = wizard.getMaxHp();
+                Wizard.potions.add(new Potion("Potion", 50));
+            }else{
+                System.out.println("You ARE DEAD");
+                anythingToContinue();
+            }
         }
         else if (act == 5){
-
             Story.printActV_Intro();
-            Story.printActV_Outro();
-
-            // upgrade
-            wizard.chooseUpgrade();
-            //new spell expediarmus
-            Spells.newSpell4();
-            act = 6;
-            place =5;
-            wizard.setHp(wizard.getMaxHp());
+            Battle.fight();
+            if (Battle.hpPlayer > 0) {
+                Story.printActV_Outro();
+                // upgrade
+                wizard.chooseUpgrade();
+                //new spell expediarmus
+                Spells.newSpell4();
+                act = 6;
+                place = 5;
+                Battle.hpPlayer = wizard.getMaxHp();
+                Wizard.potions.add(new Potion("Potion", 50));
+            }else{
+                System.out.println("You ARE DEAD");
+                anythingToContinue();
+            }
         }
         else if (act == 6){
-
             Story.printActVI_Intro();
-            Story.printActVI_Outro();
-
-            // upgrade
-            wizard.chooseUpgrade();
-            act = 7;
-            place = 6;
-            wizard.setHp(wizard.getMaxHp());
+            Battle.fight();
+            if (Battle.hpPlayer > 0) {
+                Story.printActVI_Outro();
+                // upgrade
+                wizard.chooseUpgrade();
+                act = 7;
+                place = 6;
+                Battle.hpPlayer = wizard.getMaxHp();
+                Wizard.potions.add(new Potion("Potion", 50));
+            }else{
+                System.out.println("You ARE DEAD");
+                anythingToContinue();
+            }
         }
         else{
             Story.printActVII_Intro();
-            Story.printActVII_Outro();
+            //fight
+            if (Battle.hpPlayer > 0) {
+                Story.printActVII_Outro();
+            }else{
+                System.out.println("You ARE DEAD");
+                anythingToContinue();
+            }
         }
     }
 

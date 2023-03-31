@@ -6,3 +6,5 @@ A faire : Accuracy en prenant en compte l'accuracy du wizard que j'ai passé en 
           Faire les dégats subits pas l'ennemi
           Faire les potions de heal
 
+Petit probleme quand on améliore les hpmax, impression que ça n'augmente pas.
+

@@ -4,13 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="536c995a-2b24-4989-9df7-0f6df6e820b6" name="Changes" comment="Début des combats">
+    <list default="true" id="536c995a-2b24-4989-9df7-0f6df6e820b6" name="Changes" comment="Dégats infligés">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/isep/hpah/core/Jeu/Battle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/isep/hpah/core/Jeu/Battle.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/isep/hpah/core/Jeu/Enemy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/isep/hpah/core/Jeu/Enemy.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/isep/hpah/core/Jeu/GameLogic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/isep/hpah/core/Jeu/GameLogic.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/isep/hpah/core/Jeu/House.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/isep/hpah/core/Jeu/House.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/isep/hpah/core/Jeu/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/isep/hpah/core/Jeu/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/isep/hpah/core/Jeu/Potion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/isep/hpah/core/Jeu/Potion.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/isep/hpah/core/Jeu/Wizard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/isep/hpah/core/Jeu/Wizard.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/isep/hpah/core/Jeu/idéées" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/isep/hpah/core/Jeu/idéées" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -75,7 +77,7 @@
       <workItem from="1678453115751" duration="42639000" />
       <workItem from="1678971093601" duration="7450000" />
       <workItem from="1679062118081" duration="117000" />
-      <workItem from="1679062543181" duration="95333000" />
+      <workItem from="1679062543181" duration="106723000" />
     </task>
     <task id="LOCAL-00001" summary="Nouvelles Class">
       <created>1678722406865</created>
@@ -154,7 +156,14 @@
       <option name="project" value="LOCAL" />
       <updated>1680175083414</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="Dégats infligés">
+      <created>1680178061182</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1680178061183</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -164,6 +173,7 @@
     <MESSAGE value="Nouvelles Class" />
     <MESSAGE value="base histoire terminée" />
     <MESSAGE value="Début des combats" />
-    <option name="LAST_COMMIT_MESSAGE" value="Début des combats" />
+    <MESSAGE value="Dégats infligés" />
+    <option name="LAST_COMMIT_MESSAGE" value="Dégats infligés" />
   </component>
 </project>

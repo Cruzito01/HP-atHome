@@ -7,7 +7,7 @@ public class Wizard extends AbstractCharacter {
     private int accuracy;
     private int strength;
 
-    public List<Potion> potions = new ArrayList<>();
+    public static List<Potion> potions = new ArrayList<>();
 
 
     public Wizard(String name, int def, int accuracy, int strength) {
@@ -15,7 +15,7 @@ public class Wizard extends AbstractCharacter {
         this.def = def;
         this.accuracy = accuracy;
         this.strength = strength;
-        this.potions.add(new Potion("Potion", 50));
+        potions.add(new Potion("Potion", 50));
     }
 
     static String wandCore = Wand.wandCore;
@@ -66,11 +66,10 @@ public class Wizard extends AbstractCharacter {
         GameLogic.anythingToContinue();
     }
 
-    public void newPotion(Potion potion) {
-        this.potions.add(potion);
+    public static void newPotion(Potion potion) {
+        potions.add(potion);
     }
 
-    public void usePotion(){
-        this.potions.remove(0);
+    public static void usePotion(){ potions.remove(0);
     }
 }
