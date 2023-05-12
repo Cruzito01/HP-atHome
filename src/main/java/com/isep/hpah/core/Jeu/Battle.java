@@ -76,7 +76,7 @@ public class Battle {
         public static void damage () {
             System.out.println("You attack the enemy with " + GameLogic.knownSpells.get(spellchoosen).getName());
             int chancetohit = (int) (Math.random() * 101);
-            if (chancetohit < (GameLogic.knownSpells.get(spellchoosen).getAccuracy() + GameLogic.wizard.getAccuracy())) {
+            if (chancetohit < ((GameLogic.knownSpells.get(spellchoosen).getAccuracy() + GameLogic.wizard.getAccuracy()))/2) {
                 int damage1 = GameLogic.knownSpells.get(spellchoosen).getDamage() + GameLogic.wizard.getStrength();
                 System.out.println("You hit the enemy !");
                 System.out.println("you did " + Color.RED.color + damage1 + Color.RESET.color + " damages !");
@@ -101,7 +101,7 @@ public class Battle {
                 }
                 GameLogic.anythingToContinue();
             }else {
-                System.out.println("You won !");
+                System.out.println("The enemy is dead !");
                 GameLogic.anythingToContinue();
             }
         }

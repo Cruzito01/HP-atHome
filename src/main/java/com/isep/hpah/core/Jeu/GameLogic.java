@@ -237,15 +237,15 @@ public class GameLogic {
         printHeading((Color.PURPLE.color) + "CHARACTER INFO" + (Color.RESET.color));
         System.out.println(wizard.getName() + "\tHP:" + wizard.getHp());
         printSeperator(20);
-        System.out.println((Color.CYAN.color) +"Strength: "+(Color.RESET.color) + wizard.getStrength() + (Color.CYAN.color) + "/ Accuracy: "+ (Color.RESET.color) + wizard.getAccuracy() *100 + (Color.CYAN.color) + "% / Def:"+ (Color.RESET.color) + wizard.getDef());
-        System.out.println(Wizard.pet);
-        System.out.println(Wizard.house.name);
-        System.out.println(Wizard.wandCore);
-        System.out.println(Wizard.wandSize);
+        System.out.println((Color.CYAN.color) +"Strength: "+(Color.RESET.color) + wizard.getStrength() + (Color.CYAN.color) + "/ Accuracy: "+ (Color.RESET.color) + wizard.getAccuracy() + (Color.CYAN.color) + "% / Def:"+ (Color.RESET.color) + wizard.getDef());
+        System.out.println((Color.CYAN.color)+ "Pet: " +(Color.RESET.color) + Wizard.pet);
+        System.out.println((Color.CYAN.color)+ "House: "+ (Color.RESET.color) + Wizard.house.name);
+        System.out.println((Color.CYAN.color)+ "WandCore: "+ (Color.RESET.color) + Wizard.wandCore);
+        System.out.println((Color.CYAN.color)+ "WandSize(cm): "+ (Color.RESET.color) + Wizard.wandSize);
         printSeperator(20);
         System.out.println("Spells known: ");
         for (int i = 0; i< knownSpells.size();i++) {
-            System.out.println((Color.CYAN.color) + "Name Spell: " + (Color.RESET.color) + knownSpells.get(i).getName() + (Color.CYAN.color) + " -- Power: " + (Color.RESET.color) + knownSpells.get(i).getDamage() + (Color.CYAN.color) + " -- Accuracity: " + (Color.RESET.color) + knownSpells.get(i).getAccuracy());
+            System.out.println((Color.CYAN.color) + "Name Spell: " + (Color.RESET.color) + knownSpells.get(i).getName() + (Color.CYAN.color) + " -- Power: " + (Color.RESET.color) + knownSpells.get(i).getDamage() + (Color.CYAN.color) + " -- Accuracy: " + (Color.RESET.color) + knownSpells.get(i).getAccuracy());
         }
         anythingToContinue();
     }
@@ -264,20 +264,13 @@ public class GameLogic {
     static Spells[] spell = new Spells[6];
     static List<Spells> knownSpells = new ArrayList<>();
     static Spells basicAttack = new Spells("BasicAttack", 10, 100);
-    static Spells wingardiumLeviosa = new Spells("Wingardium Leviosa", 5, 80);
-    static Spells accio = new Spells("Accio", 10, 100);
-    static Spells expectoPatronum = new Spells("Expecto Patronum", 0, 100);
+    static Spells wingardiumLeviosa = new Spells("Wingardium Leviosa", 5, 70);
+    static Spells accio = new Spells("Accio", 10, 70);
+    static Spells expectoPatronum = new Spells("Expecto Patronum", 0, 65);
     static Spells sectumSempra = new Spells("Sectumsempra", 100, 40);
     static Spells expelliarmus = new Spells("Expelliarmus", 30, 60);
 
-    /*
-        spell [0]= basicAttack;
-        spell [1]=wingardiumLeviosa;
-        spell [2]=accio;
-        spell [3]=expectoPatronum;
-        spell [4]=sectumSempra;
-        spell [5]=expelliarmus;
-    */
+
     //main game loop
     public static void gameLoop(){
         while(isRunning){
